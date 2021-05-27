@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(05.json.html)</title>
+<script>
+  //Json표기법=>키명:저장할값(숫자,문자열,논리적인값,객체,배열(객체들의 묶음))
+  var myjson={
+		  "name":"홍길동", /* key:value */
+		  "sung":"남자",
+		  "func":"function(){alert('test')}" /* 함수정의 문자형태로 저장*/
+  }
+  var myjson2={"number":123} /* 객체명.키명(읽기)<->객체명.키명=값(저장)   */
+  var myjson3={"temp":true}
+  //배열구조
+  var myjson4={"temp":["aaa","bbb","ccc"]} /* [] 배열표시 */
+  var mem={name:'홍길동',fColor:['파랑','녹색','빨강']}
+  
+  function print1(){
+	  var msg=mem.name+"님이 좋아하는 색깔은 전체"
+	                 +mem.fColor.length+"개이고,"
+	        msg+=" 그중에서 제일 좋아하는 색깔은"+mem.fColor[1]+"입니다."
+	      alert(msg)
+  }
+</script>
+</head>
+<body>
+<input type="button" value="test" onclick="print1()">
+<input type="button" value="이름 변경"
+           onclick="myjson.name='테스트';alert(myjson.name)">
+           <!-- 
+            eval()함수=>문자열로 되어있는 자바스크립트문자=>자바스크립트코드로 변환
+            ex) "var re"+"sult=123"
+                   eval("var re"+"sult=123")=>var result=123
+                  
+                  var a=function(){alert('test')}   a()->alert('test')
+            -->
+<input type="button" value="함수호출"
+           onclick="alert(myjson.func);eval('a='+myjson.func);a()">
+</body>
+</html>
+
+
+
+
+
+

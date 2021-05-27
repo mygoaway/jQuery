@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(04.$.ajax().xml.html)</title>
+<!-- 
+  openAPI=>우편번호,서울시 자전거 보관장소,,,->xml or json
+   getXml.jsp의 내용
+   
+   <people>
+  <person>
+     <name>홍길동</name>
+     <job>학생</job>
+     <age>23</age>
+  </person>
+  ,,,
+  <people>
+
+ -->
+<script>
+   $(function(){
+		   $.ajax('getXml.jsp',{
+			   //data:~ 매개변수가 필요없으니깐 생략
+			   success:function(data){//3.success:콜백함수지정
+				   //분리작업(=파싱분리) parse->find() or filter()를 이용
+				   $(data).find('person').each(function(){//3번 반복
+					   var name='<li>'+$(this).find('name').text()+'</li>'
+					   var job='<li>'+$(this).find('job').text()+'</li>'
+					   var age='<li>'+$(this).find('age').text()+'</li>'
+					   //<div>에 결합해서 화면에 출력
+					   $('#output').append('<ul>'+name+job+age+'</ul>')
+				   })//each
+			   }//success
+		   })//$.ajax
+   })
+</script>
+</head>
+<body>
+  <div id="output">
+      <!-- <ul>
+         <li>홍길동</li>
+         <li>학생</li>
+         <li>23</li>
+      </ul> -->
+  </div>
+</body>
+</html>
+
+
+
+
+
+

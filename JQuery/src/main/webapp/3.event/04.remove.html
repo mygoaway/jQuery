@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(04.remove.html)</title>
+<script>
+   $(function(){
+	   //$('#button1').bind('click',function(){})
+	   $('#button1').click(function(){
+		   $('#div1').remove()//전체 삭제->drop table 삭제할 테이블명(구조삭제(내용까지))
+	   })
+	   
+	   $('#button2').click(function(){
+		   $('#div1').empty()//->특정태그(div)의 자식태그를 포함한다면 자식태그들도 삭제
+		                              //div태그의 자식태그 p를 삭제
+	   })
+	   
+	   $('#button3').click(function(){
+		   $('.test').empty() //delete from 테이블명=>특정 태그의 내용만 삭제
+	   })
+   })
+</script>
+</head>
+<body>
+<div id="div1"  style="height:100px;width:300px;
+                                  border:1px solid black;
+                                  background-color:yellow">
+                                  
+     <p class="test"  style="height:50px;width:50px;
+                                  border:1px solid red;
+                                  background-color:yellow">
+                                  first </p>
+     <p>div second</p>
+</div><br>
+ <button id="button1">Remove div</button>
+ <button id="button2">empty div</button>
+ <button id="button3">empty p</button>
+</body>
+</html>
+
+
+
+
+
+

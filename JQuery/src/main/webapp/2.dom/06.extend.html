@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제</title>
+<script>
+   $(function(){
+	   //새로 객체를 하나 생성=>데이터를 입력->나중에 추가로 저장
+	   //var object1=new Object();
+	   var object1={} //비어있는 객체(내용이 없는 객체)
+	   //var object1=[] //배열->객체
+	   //동적으로 속성(=멤버변수)을 추가=>객체명.동적속성=값
+	   object1.name='임시';//String name="임시"; 자바의 경우
+	   object1.addr='서울시 강남구 세경빌딩 3층';
+	   object1.age=23;
+	   alert(object1.name+'님의 주소는 '
+			    +object1.addr+'이고요,나이는'+object1.age+'살')
+	   //$.extend(기존의 객체명,객체명2,객체명3,,,)=>객체배열관리=>$.each
+	   var object2={name:'테스트'}
+	   $.extend(object2,{//기존의 객체에 내용을 추가할 목적
+		   region:'서울시 강북구',
+		   age:34,
+		   sung:'남자'
+	   })
+	   //출력->자바->확장 for문(객체값 출력)=>자바스크립트의 jQuery=>$.each
+	   //형식)$.each(1.출력할 객체명.2.매개변수로 index와 valuer값을 갖는 콜백함수)
+	   var output='';//출력할값
+	   $.each(object2,function(key,item){
+		   output+=key+":"+item+'\n';
+	   })
+	   alert(output);//객체의 값을 한꺼번에 출력
+	   //추가
+	   $.each([ 52, 97 ], function( index, value ) {
+		   alert( index + ": " + value );//객체 한개씩 출력
+		 });
+   })
+</script>
+</head>
+<body>
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+

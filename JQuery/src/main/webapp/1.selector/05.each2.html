@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jquery예제(05.each함수의 2번째예제)</title>
+<script>
+   $(function(){
+	   //중첩된 태그의 정보를 어떻게 얻어오고 내용을 검색->스타일을 적용?
+	   //jquery var $변수명=값(객체)
+	   var $nodes=$('#root').children().css('color','red') 
+	   alert('자식들의 수=>'+$nodes.length)
+	   var txt="";//자식의 이름
+	   //형식)$(반복적으로 나올태그명).each(호출할 함수명 | function(){ 기술})
+	   /*
+	    1.text()->태그의 텍스트만 가져오는 함수<->text(변경할값)
+	    2.html()->태그와 텍스트들까지 같이 가져온다.<->html(변경할값)
+	    3.val()->회원가입처럼 입력폼안에 있는 입력양식에 해당되는 값을 가져올때 사용
+	      (input,check,radio~)<->val(변경할값)
+	   */
+	   $('#root').children().each(function(){
+		   txt+=$(this).text()+" ";
+	   })
+	   alert(txt)
+   })
+
+</script>
+</head>
+<body><!-- 부모 자식관계(중첩된 상태) -->
+   <div id="root">
+     <div><b>홍길동</b></div>
+     <div>테스트김</div>
+     <div><i>임시</i></div>
+     <div>임시테스트</div>
+   </div>
+ 
+</body>
+</html>
+
+
+
+
+
+

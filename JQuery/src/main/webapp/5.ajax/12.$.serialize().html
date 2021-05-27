@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제</title>
+<script>
+   $(function(){
+	   $('#submit').click(function(){
+		   $('#result').empty()//전의 내용지우고 새로 내용을 추가하기
+		   //{seq:1,username='테스트',,,,} ->입력받아서 전달할 갯수 많은경우
+		   /* 
+		   var form_data=$('form').serializeArray()//json형식
+		   //(1)입력받은값을 서버에 전송하기전에 확인절차
+		   $.each(form_data,function(index,input){//폼의 입력받은 순서->인덱스번호
+			   $('#result').append(input.name+"="+input.value+"<br>")
+			                                  //항목=저장할값
+		   })*/
+		   //(2)
+		   /*
+		   var form_data=$('form').serialize()
+		   $('#result').text(form_data) */
+		   //seq=1&username=홍길동&password=1234&hobby=yoga&hobby=reading
+		   var form_data=$('form').serializeArray()
+		   //(3)서버에 요청
+		   $.post('form.jsp',form_data,function(args){
+			   $('#result').html(args)
+		   })
+	   })//$('#submit')
+   })
+</script>
+</head><body>
+ <form>
+   <input type="hidden" name="seq" value="1">
+   <label>이름을 입력하세요:</label>
+   <input type="text" name="username"><br>
+   <label>암호를 입력하세요:</label>
+   <input type="password" name="password"><br>
+   <input type="checkbox" name="hobby"  value="music">music
+   <input type="checkbox" name="hobby"  value="yoga">yoga
+   <input type="checkbox" name="hobby"  value="reading">reading
+   <input type="button" id="submit"  value="전송">
+ </form>
+ <hr>
+ <div id="result"></div>
+</body>
+</html>
+
+
+
+
+
+

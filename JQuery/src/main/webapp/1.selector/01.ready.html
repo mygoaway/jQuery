@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<title>01.ready()함수</title>
+<script>
+/* (1)
+  function test(){
+	  alert("jQuery 소개");
+  }
+  */
+  /* (2) 불러오는 문서의 내용이 복잡(화면 디자인 복잡)=>속도가 느려지는 단점
+     window.on이벤트종류명=호출할 함수명 or 익명함수 
+     window.onload=function(){
+    	 alert("jQuery 소개2");
+  }
+ */
+ //(3)속도가 빠른 jQuery ready() 함수를 이용
+ //문서를 읽어들여서 맨 처음 실행할 구문이 있다면 실행
+  $(document).ready(function(){
+	  alert("ready()를 이용해서 함수를 호출합니다.");
+  })
+  $().ready(function(){
+	  alert("document생략 가능")
+  })
+  $(function(){
+	  alert("가장 최근의 형태임!!")
+  })
+</script>
+</head>
+<body>
+<!-- <body onload="test()"> (1) -->
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>02.cdn를 이용하는 방법</title>
+<style type="text/css">
+/*
+    선택자(태그) {속성명:속성값;~}
+    h1 {color:red}
+    span {border:3px solid blue}
+    .my {border:5px dotted green}
+ */
+</style>
+<script>
+   $(function(){
+	   //alert("cdn방식을 이용")
+	   //형식) $(element(태그이름),id,class선택자,,).함수명().함수명()....chaining method
+	   //형식1)$('태그명').css('속성명','속성값')
+	   $('h1').css('color','red')
+	   $('span').css('border','3px solid blue') //Setter Method=>값설정
+	   //형식2)$('태그명.클래스명')
+	   //my라는 클래스선택자를 가진 태그를 찾아서 border속성에 8px double green을 적용시키라
+	   $('.my').css('border','8px double green')
+	   //형식3) id선택자->$('태그명#id선택자명이름')=>태그명은 생략가능
+	   $("div#content").css('background','yellow')
+	   //형식4) 모든 태그를 가리키는 예약어->*
+	   $('*').css('color','cyan')//동일한 스타일을 여러번 적용=>맨 마자믹이 반영
+   })
+</script>
+</head>
+<body>
+ <h1>jQuery 선택자 연습</h1>
+ <p class="my">jQuery 실습</p>
+ <div>
+      <div id="content">id값이 content인 div</div>
+ </div>
+ <span>span1</span>
+ <span class="my">span2</span>
+</body>
+</html>
+
+
+
+
+
+

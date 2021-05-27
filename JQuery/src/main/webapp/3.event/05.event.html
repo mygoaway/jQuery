@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(이벤트객체,이벤트연결해제)</title>
+<script>
+   $(function(){
+	   /*
+	     event객체->이벤트를 발생시킨 객체에 대한 정보를 가지고 있는 객체
+	                   (클릭한 좌표값,마우스클릭(버튼의 종류))
+	   */
+	   //$('img').bind('dblclick',function(event){
+		 $('img').one('dblclick',function(event){//one함수는 한번만 실행
+		   //alert('이미지 더블클릭')
+		   //var $target=$(event.target)
+		   //이벤트를 발생시킨 대상자에 대한 정보를 가지고 있는 속성
+		   var $target=$(this)
+		   alert($target.width()+","+$target.height())//120,120
+		   $target.width($target.width()*2)//현재넓이*2만큼 증가시켜라
+		   //형식2)$(이벤트발생대상자 선택자).unbind('해제시킬 이벤트종류명')
+		   //형식3)$(이벤트발생대상자 선택자).unbind()->모든 이벤트연결 해제
+		   //$target.unbind()//$target.unbind('dblclick')
+	   })
+   })
+</script>
+</head>
+<body>
+<img src="../picCats/Persian.jpg">
+ 
+</body>
+</html>
+
+
+
+
+
+

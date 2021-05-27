@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(매개변수값 전달받는 방법)</title>
+<script>
+   $(function(){
+	   /*
+	   jQuery에서 특정태그를 검색->contains(단어),not(찾는 선택자)(범위)
+	   //형식)$('선택자').filter('찾는 조건에 해당하는 선택자(태그 or 속성선택자)')
+	   
+	   */
+	   //h1태그중에서 짝수번째에 해당되는 h1태그의 바탕색은 검정색,글자색은 흰색으로 설정하라
+	   //(1) $('h1:even').css({backgroundColor:'Black',color:'White'})
+	   //(2)$('h1').filter(':even').css({backgroundColor:'Black',color:'White'})
+	   //(3) 콜백함수의 형태(매개변수를 전달받아서 처리해주는 함수를 이용)
+   
+	   $('h1').filter(function(index){//자바스크립트의 매개변수로 또 다른 함수를
+		                                 //전달받아서 처리해주는 함수->콜백함수
+		   return index%2==0
+	   }).css({backgroundColor:'Black',color:'White'})
+	   //제어문->if형식과 비슷=>$('선택자').is('찾을 조건')->true,false
+	   $('h1').each(function(){
+		   //읽어들이는 순서에 따라서 같은 태그를 구분할때 ->
+		   //$(this)=>현재 읽어들이는 h1태그
+		   if($(this).is('.select')){
+			    $(this).css('background','yellow').css('font-size','16pt')
+		   }else{//클래스선택자 select가 아닌 나머지 h1태그
+			    $(this).css('background','green')
+		   }
+	   })
+   })
+</script>
+</head>
+<body>
+ <h1>Item-0</h1>
+ <h1 class="select">Item-1</h1>
+ <h1 id="select">Item-2</h1>
+ <h1>Item-3</h1>
+ <h1>Item-4</h1>
+</body>
+</html>
+
+
+
+
+
+

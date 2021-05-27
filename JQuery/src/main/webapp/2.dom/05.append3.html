@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(05.append3.html)</title>
+<style>
+    .textstyle {font-size:16pt;line-height:20pt;margin:10px;}
+</style>
+<script>
+   $(function(){
+	   /*
+	   형식) 1.$(부모태그 > 자식태그)->부모태그 바로밑의 자식태그를 찾을때(손자 포함X)
+	          2.$(부모태그  자식태그)->부모태그 바로밑의 자식태그를 찾을때(손자 포함 O)
+	          3.$(부모태그+자식태그)->부모태그 바로 옆에 인접한 형제태그(짝궁)찾기
+	          4.$(부모태그~자식태그)->부모태그 바로 옆에 짝궁+다른 인접한 태그까지 찾기
+	   */
+	   $('*').addClass('textstyle')
+	   //em태그옆에 인접한 모든 a태그를 찾아서 배경색을 노란색으로 설정하고 나서 
+	   //클래스선택자(result)가 부여된 태그에 자식으로 추가시켜라
+	   $('em~a').css('background-color','yellow').each(function(){
+		   $('.result1').append($(this))//em+a에 인접한 태그만(two)
+	   })
+   })
+</script>
+</head>
+<body>
+ <em>one</em>
+ <a>two</a>
+ <a>three</a>
+ <b>four</b>
+ <a>five</a>
+ <em>six</em>
+ <hr>
+ <div>
+    <span>prev+next로 검색된 엘리먼트 확인예제</span>
+    <span class="result1"></span>
+ </div>
+</body>
+</html>
+
+
+
+
+
+

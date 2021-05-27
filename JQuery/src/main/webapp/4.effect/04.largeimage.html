@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제</title>
+<style>
+  .small img {border:none;margin:10px;width:60px;height:60px;}
+</style>
+<script>
+   $(function(){
+	  // $('.small a').mouseover(function(){})
+	  $('.small a').hover(function(){
+		  var imgname=$(this).attr('href')
+		  //alert(imgname)
+		  //fadeTo(1.유지시간,2.투명도(0 or 1),3.효과종료후 처리할 함수)
+		  //fadeIn,fadeOut을 호출하는 함수
+		  $('.large').fadeTo("slow",0,function(){//0은 안보이게 설정
+			  //천천히 원래 이미지를 안보이게 설정을 하고 나서 그리고 함수호출
+			  $('.large').attr('src',imgname)
+			  //$('.large').attr('src',$(this).attr('href'))
+		  }).fadeTo("slow",1)//서서히 눈에 보이게 설정(투명도 1 ->눈에보임)
+	  },function(){})
+   })
+</script>
+</head>
+<body>
+ <div class="small">
+ <a href="./img/photo1.jpg"><img src="./img/photo1.jpg"></a>
+ <a href="./img/photo2.jpg"><img src="./img/photo2.jpg"></a>
+ <a href="./img/photo3.jpg"><img src="./img/photo3.jpg"></a>
+ <a href="./img/photo4.jpg"><img src="./img/photo4.jpg"></a>
+ <a href="./img/photo5.jpg"><img src="./img/photo5.jpg"></a>
+ </div>
+ 
+ <img src="./img/photo1.jpg" class="large">
+</body>
+</html>
+
+
+
+
+
+

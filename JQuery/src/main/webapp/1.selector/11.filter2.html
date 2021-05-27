@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(최종적으로 필터선택자4)</title>
+<script>
+   $(function(){
+	  //선택자(같은 태그->속성을 이용)=>같은 태그인데 만약에 속성이 없으면 
+	  //어떻게 구분해서 스타일을 적용?
+	  //같은 태그의 출력되는 순서를 기준으로 설정
+	  /*
+	    요소:contains(찾는문자열)->찾는 문자열을 가진 태그찾기
+	      =,>,< 관계연산자를 이용
+		요소:eq(n)->n번째 위치를 가진 태그찾기(인덱스번호가 같은거) ->ex) ~where ename='홍길동'
+		요소:gt(n)->n번째보다 큰 위치를 가진 태그찾기 ex) >3
+		요소:lt(n)->n번째보다 작은위치(인덱스번호) 위치를 가진 태그찾기 <2
+		요소:not(선택자)->선택자와 일치하지 않은  태그찾기
+		요소:has(특정 태그)->특정태그를 찾을때 사용(부모태그내부의 특정자식태그를 찾는경우)
+	  */
+	  $('tr:even').css('background','pink')//내부적으로 인덱스번호는 0부터 시작
+	  //$('tr:first')
+	  //$('tr:eq(0)').css('font-size','23pt').css('background','green')
+	  $('tr').eq(0).css('font-size','35pt').css('background','green')
+	  $('tr:last').css('font-size','30pt').css('background','cyan')
+	  $('td:contains(A형)').css('background','purple')
+	  //$('tr:gt(2)') -> >2보다 큰 tr태그를 찾아라
+	  $('tr:lt(2)').css('font-family','바탕체')
+	                   .css('font-size','16pt').css('color','red')
+	   //boolean str=!true;
+	  $('tr').not(':even').css('color','green')
+	  //$( "li" ).has( "ul" ).css( "background-color", "red" );
+	  $('tr').has('th').css('font-family','궁서체').css('color','blue')
+   })
+</script>
+</head>
+<body>
+ <center>
+   <table border="1">
+     <tr><th>이름</th><th>혈액형</th></tr>
+     <tr><td>테스트</td><td>A형</td></tr>
+     <tr><td>임  시</td><td>B형</td></tr>
+     <tr><td>테스트2</td><td>O형</td></tr>
+     <tr><td>테스트3</td><td>AB형</td></tr>
+   </table>
+ </center>
+ 
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제</title>
+<script>
+   $(function(){
+	   $('#sel').change(function(event){
+		   /*
+		   var imgSrc=$(event.target).val()
+		   //이미지의 src속성에 경로포함해서 이미지파일명
+		   $('#img').attr('src',imgSrc)
+		   */
+		   $('#img').attr('src',$(event.target).val())
+	   })
+   })
+</script>
+</head>
+<body>
+<form name="frm">
+  <table>
+     <tr>
+         <td>
+           <select id="sel">
+                <option value="../picCats/ragdoll.jpg">Ragdoll</option>
+                <option value="../picCats/MaineCoon.jpg">MaineCoon</option>
+                <option value="../picCats/Persian.jpg">Persian</option>
+           </select>
+         </td>
+         <td><img id="img"></td>
+     </tr>
+  </table>
+</form>
+ 
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(02.fade.html)</title>
+<style>
+   p {position:relative;width:400px;height:90px;}
+   div {
+           position:absolute;width:410px;height:85px;
+           font-size:36px;text-align:center;
+           color:yellow;
+           background:red;
+           padding-top:25px;
+           top:0;left:0;
+           display:none;/*처음에는 success 단어를 안보이게 설정*/
+        }
+   span {display:none;}
+</style>
+<script>
+   $(function(){
+	   //fadeIn->서서히 화면이 보이는 경우
+	   $('#fadeIn').click(function(){
+		   //형식) $('선택자').fadeIn(애니매이션 유지시간,처리할 함수)
+		   //div태그를 3초동안 서서히 보여준뒤
+	       $('div').fadeIn(3000,function(){
+	    	   $('span').fadeIn(100)//0.1초
+	       })
+	   })
+	   //fadeOut()=>불투명도 감소->서서히 사라짐(투명도는 높아진다.)
+	   $('#fadeOut').click(function(){
+		   //형식) $('선택자').fadeOut(유지시간(초,문자열(slow,fast)),처리할 함수)
+		   //div태그를 3초동안 서서히 사라지게 한뒤에
+	       $('div').fadeOut(3000,function(){
+	    	   $('span').fadeIn(100)
+	       })
+	   })
+	   //fadeToggle()->fadeIn,fadeOut을 번갈아 가면허 호출
+	   $('#fadeToggle').click(function(){
+		   //형식) $('선택자').fadeToggle(유지시간(초,문자열(slow,fast),처리할 함수)
+	       $('div').fadeToggle(3000,function(){
+	    	   $('span').fadeIn(100)
+	       })
+	   })
+   })
+</script>
+</head>
+<body>
+<p>
+  불투명도를 점점 높여서 보이게 설정
+  speed를 fast,normal,slow 또는 0이상의 숫자(밀리세컨드 단위)를 준다.(3000)
+  애니매이션이 끝난후에 사용자정의 함수를 지정
+</p>
+<div><span>Success!</span></div>
+ <button id="fadeIn">fadeIn</button>
+ <button id="fadeOut">fadeOut</button>
+ <button id="fadeToggle">fadeToggle</button>
+ 
+</body>
+</html>
+
+
+
+
+
+

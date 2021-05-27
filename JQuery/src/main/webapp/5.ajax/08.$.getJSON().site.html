@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제</title>
+<!--
+(  {
+		"title": "Recent Uploads tagged raccoon",
+		"link": "https:\/\/www.flickr.com\/photos\/tags\/raccoon\/",
+		"description": "",
+		"modified": "2021-03-11T03:35:08Z",
+		"generator": "https:\/\/www.flickr.com",
+		"items": [
+	  var item= {
+			"title": "Raccoon | Procyon lotor | Raton Laveur",
+			"link": "https:\/\/www.flickr.com\/photos\/paulbjones\/51024656572\/",
+			"media": {"m":"https:\/\/live.staticflickr.com\/65535\/51024656572_bf78820ee4_m.jpg"},
+			"date_taken": "2021-03-09T05:02:12-08:00",
+			"description": " <p><a href=\"https:\/\/www.flickr.com\/people\/paulbjones\/\">Paul B Jones<\/a> posted a photo:<\/p> <p><a href=\"https:\/\/www.flickr.com\/photos\/paulbjones\/51024656572\/\" title=\"Raccoon | Procyon lotor | Raton Laveur\"><img src=\"https:\/\/live.staticflickr.com\/65535\/51024656572_bf78820ee4_m.jpg\" width=\"240\" height=\"160\" alt=\"Raccoon | Procyon lotor | Raton Laveur\" \/><\/a><\/p> <p>This Raccoon showed up on the beach near the lighthouse at Prince Edward Point several days ago. It's very small, and when I first found it lying amidst the banks of quagga mussel shells thrown up by the waves, it could barely lift its head. <br \/> <br \/> Raccoons are not true hibernators, but go into periods of torpor during colder weather. This one was probably woken by hunger, and driven out to forage in the still wintery environment. All it could find to eat was the tiniest scraps of food among all the mussel shells. I did not think it would survive.<br \/> <br \/> But I've seen it every day this week, and each time it seems a little bit stronger. Sharing my protein bars has probably helped.<\/p>",
+			"published": "2021-03-11T03:35:08Z",
+			"author": "nobody@flickr.com (\"Paul B Jones\")",
+			"author_id": "62119764@N08",
+			"tags": "pec raccoon procyonlotor ratonlaveur princeedwardcounty ontario canada wildlife nature mammal ice winter canoneos90d ef600mmf4lisiiiusm"
+	   },
+	   {},
+	   {},
+ ]
+	   
+  -->
+<script>
+   $(function(){
+	   $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?"
+		+"tags=raccoon&tagmode=any&format=json&jsoncallback=?",
+				function(data){
+		   //태그X $.each(1.컬렉션객체(배열),function())
+	        $.each(data.items,function(i,item){//배열의 인덱스,인덱스번호에 해당되는객체
+	        	//<img src="경로포함해서 불러올 파일명">
+	        $("<img>").attr("src",item.media.m).appendTo("#images")//자식.appendTo(부모)
+	        //전체의 이미지 중에서 0~4인덱스에 해당하는 이미지만 불러오기
+	         alert(item.title)//2개의 title 제목 출력
+	         alert(item.published)
+	        /*
+	            if(i==4)
+	            	return false;*///break구문역할
+	        if(i%2==1)
+	        	return false;
+	        })//$.each
+		 })//function(data)
+   })
+</script>
+</head>
+<body>
+ <div id="images">
+   
+ </div>
+ 
+</body>
+</html>
+
+
+
+
+
+

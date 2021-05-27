@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제</title>
+<script>
+   $(function(){
+	   //$.post()->내부적으로 $.ajax()를 호출->post방식으로 서버에 요청->
+	   //서버가 찾은 문서의 결과->콜백함수를 통해서 화면에 출력하는 방식
+	   $('#saveButton').click(function(){
+		   //<%=name%>님 jQuery Ajax 환영합니다.!
+		   var value=$('#name').val()
+		   alert(value)
+		   /*
+		   형식) $.post(1.url(요청문서),
+				             2.전달할 매개변수명 {매개변수명:전달할값,,,,},
+				             3.콜백함수,4.요청문서 종류(생략이 가능))
+				             aa.jsp?name='홍길동'
+		   */
+		   $.post('aa.jsp',{name:value},function(args){
+			   //args=<%=name%>님 jQuery Ajax 환영합니다.!
+			   //alert(args)
+			   $('#resultDiv').html(args)//html(값)->텍스트 or 태그포함 텍스트
+		   })
+	   })
+   })
+</script>
+</head>
+<body>
+이름:<input type="text"  id="name"><br><p>
+ <button id="saveButton">전송</button>
+ <button id="clearButton">지우기</button>
+ <div id="resultDiv"></div>
+</body>
+</html>
+
+
+
+
+
+

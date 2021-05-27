@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(8.inputattr.html)</title>
+<script>
+   $(function(){
+	   //입력양식에 관련된 필터속성선택자->요소[속성명=값]=>요소:속성명
+	   /*
+		 요소:button->input 태그중에서 type속성이 button인 경우
+	     비활성화(disabled) true <-->활성화(enabled)->true
+		요소:reset(초기화),요소:submit(전송)
+		요소:text->type속성이 text인 경우=>요소[text]
+		요소:checkbox,->checked->false(체크하지 마라)->true(체크표시)
+		요소:file(파일첨부)
+		요소:image,요소:password,요소:radio
+     */
+     //형식) $('선택자').attr(속성명,속성값) <->~attr(속성명)
+     //$('input[type=checkbox]')
+     $('input:checkbox').attr('checked',false)//체크해제
+     $('input:disabled').attr('disabled',false)//비활성 제거=>활성화하라
+     $('input:text').val('값을 입력하세요')
+     //$('input:password')
+     //input 태그중에서 password인 속성을 찾아서 배경색을 pink,글자크기 23pt,
+     //value속성에 값입력을 저장하라.
+     $('input[type=password]').css('background','pink')
+                                  .css('font-size','23pt').val('값을 입력')
+     $('input[type=button]').val('회원가입')
+     $('input:button').val('회원가입2')
+   })
+</script>
+</head>
+<body>
+ <input type="text">
+ <input type="password">
+ <input type="button">
+ <button>버튼2</button>
+ <hr>
+ <input type="checkbox" name="city" value="서울" checked>서울
+ <input type="button" value="확인" disabled>
+</body>
+</html>
+
+
+
+
+
+

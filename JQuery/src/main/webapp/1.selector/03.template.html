@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(함수를 연결)</title>
+<script>
+   $(function(){
+	  // var test=document.getElementsByTagName('h2');//태그정보->태그객체
+	  // alert(test)
+	  //var $변수명=값
+	  var $test=$('h2') //var $변수명->객체를 저장하고 있다는 의미
+	  //alert($test) [Object object]->자바스크립트객체 표시
+	  /*
+	  특정태그에 대해서 함수를 호출할때 여러개의 함수를 마치 체인처럼 나열해서
+	  호출하는 방식(chanining method 방법)
+	  
+	  $test.css('font-family','궁서체')
+	  $test.css('font-size','30pt')
+	  $test.css('color','red')
+	  */
+	  $test.css('font-family','궁서체')
+	         .css('font-size','40pt').css('color','green')
+   })
+</script>
+</head>
+<body>
+ <h2>jQuery CSS 연습</h2>
+ 
+</body>
+</html>
+
+
+
+
+
+

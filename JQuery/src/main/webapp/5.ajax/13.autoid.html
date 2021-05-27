@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="autoid.css" type="text/css">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제</title>
+<script>
+   $(function(){
+	   $('.listbox').hide()//<->$('.listbox').show()=> 검색어를 입력했을때
+	   // $('.userid').bind('keyup',function(){})
+	   $('.userid').keyup(function(){//입력했을경우 이벤트발생처리
+		   var uid=$('.userid').val()
+		   //alert(uid)
+		   var param='userid='+uid //autoid.jsp에게 요청
+		   //$.post(~)=>$.ajax
+		   $.ajax({
+			  type:'post',  /*type:get | post 전송방식을 지정 */
+			  url:'autoid.jsp',
+			  data:param,  /* data:{매개변수명:값~} */
+			  success:function(html){//<li>검색어</li>
+				  $('.listbox').show()//스타일 적용시킬 목록을 화면에 출력
+				  $('.namelist').html(html)//태그포함한 문자열을 저장
+				  //하이라이트 효과
+				  $('li').hover(function(){
+					  $(this).addClass('hover')
+				  },function(){
+					  $(this).removeClass('hover')
+				  })
+				  //검색할 목록중에서 원하는 항목을 클릭
+				  $('li').click(function(){
+					  //input box의 value값에 여러개의 li태그중에서 클릭한 li태그 의 내용
+					 $('.userid').val($(this).text())
+					 $('.listbox').hide() //검색목록부분 감추기
+				  })
+			  }//success
+		   })//$.ajax
+		   return false;//전송X
+	   })//keyup
+   })
+</script>
+</head>
+<body>
+ <h1>검색할 id를 입력하세요</h1>
+   <form>
+    검색어:<input type="text" name="userid" class="userid"><br>
+    <div class="listbox">
+          <div class="namelist"></div>
+    </div>
+   </form>
+</body>
+</html>
+
+
+
+
+
+

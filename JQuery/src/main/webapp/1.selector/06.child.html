@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(06.child.html(중첩관계2))</title>
+<script>
+   $(function(){
+	   //중첩->트리구조 형성(DOM)
+	   //형식)  부모태그 > 자식태그->부모태그 바로 밑에 있는 자식태그를 선택할때 사용->자손태그 포함X
+	  //형식2) 부모태그  자식태그->부모태그 바로 밑에 있는 자식태그를 선택할때 사용->자손태그 포함O
+	  //형식3) 부모태그+자식태그=>바로 옆의 태그를 찾을때 사용
+	  //특정태그를 찾으시면 prev(),next()를 이용(first(),last())
+	  $('body  div').css('border','3px solid navy');
+	  $('p > span').css('border','3px dotted red');
+	  $('span+a').next().css('border','3px double green');
+	  $('span+a').prev().css('background','yellow');
+   })
+</script>
+</head>
+<body>
+ <div>
+    <ul>과일 목록
+       <li>사과</li>
+       <li>배</li>
+       <li>복숭아</li>
+       <li>오렌지</li>
+       <li>파인애플</li>
+    </ul>
+    <div>가을</div>
+ </div>
+ <div>jQuery 연습</div>
+ <p>
+   <span>태그정보</span>
+   <a>one</a>
+   <span>태그정보2</span>
+ </p>
+</body>
+</html>
+
+
+
+
+
+

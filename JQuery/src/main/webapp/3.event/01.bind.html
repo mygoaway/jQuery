@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제</title>
+<script>
+   $(function(){
+	   /*
+	    형식) window.on이벤트종류명=호출할 함수명 or function(){}
+        형식2) window.addEventListener(이벤트종류명,실행할 함수명)
+        형식3) $(이벤트발생 대상자가 되는 선택자).bind(등록할 이벤트종류명,실행할 함수명| function(){})
+        태그의 기본적인 기능(원래 기능(링크 a)->페이지 이동,전송버튼(submit)->데이터 전송)
+        비활성화 시키는 방법=>1) 이벤트 처리해주는 함수끝에 return false를 주는 경우
+                                    2)함수를 작성하면서 event객체를 매개변수로 전달을 받아서
+                                      event.preventDefault()->기본적인 기능을 중지
+                                    event=>눈에 보이지 않은 객체로서 마우스의 클릭(좌표값 확인)
+                                                      이벤트의 정보를 알고자할때 사용되는 객체 
+	   */
+	   //$('a').bind('click',function(){//(1)
+		   $('a').bind('click',function(event){//(2)
+		   //alert('이벤트 연습중')
+		   //클릭한 링크문자열의 href속성값을 가져오기
+		   //$(this)->클릭한 a 링크의 대상자를 가리키는 예약어
+		   var href=$(this).attr('href') //$('a').attr(속성명,저장할값)
+		   //alert(href)
+		   $('img').attr('src',href)
+		   //이미지태그의 src속성에 클릭한 링크문자열의 이미지경로및 파일명을 저장
+		   event.preventDefault();//(2)
+		   //return false;(1)
+	   })
+   })
+   
+</script>
+</head>
+<body>
+ <ul>
+    <li><a href="../picCats/Persian.jpg">Persian</a></li>
+    <li><a href="../picCats/RussianBlue.jpg">RussianBlue</a></li>
+    <li><a href="../picCats/BritishShorthairs.jpg">BritishShorthairs</a></li>
+ </ul>
+ <!-- <img src="../picCats/Persian.jpg"> -->
+ <img>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>jQuery 예제(03.$.ajax().html)</title>
+<script>
+   $(function(){
+	   //서버가 찾은 문서의 결과->콜백함수를 통해서 화면에 출력하는 방식
+		   /*
+		   형식) $.ajax(1.url(요청문서),
+				             2.전달할 매개변수명 {매개변수명:전달할값,,,,}(생략가능),
+				             3.콜백함수)
+				   aa2.jsp?name='test'&age=23&addr='서울시 강남구 ~'
+					   <%=name%>님 jQuery Ajax 환영합니다.!<br>
+					   나이는 <%=age %>이고, 주소는 <%=addr %> 이군요!		   
+		   */
+		   $.ajax({
+			   url:'aa2.jsp', //1.url(속성명):요청문서(속성값만 변경이 가능)
+			                      //2.data:{매개변수명:값,매개변수명2:값2,,,}
+			   data:{name:'test',age:23,addr:'서울시 강남구 세경빌딩3층'},
+			   success:function(args){//3.success:콜백함수지정
+				   $('body').append(args)
+			   }//success
+		   })
+   })
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
