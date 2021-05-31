@@ -7,7 +7,7 @@
 <script>
 /* (1)
   function test(){
-	  alert("jQuery 소개");
+	  alert("jQuery 소개!!");
   }
   */
   /* (2) 불러오는 문서의 내용이 복잡(화면 디자인 복잡)=>속도가 느려지는 단점
@@ -21,9 +21,11 @@
   $(document).ready(function(){
 	  alert("ready()를 이용해서 함수를 호출합니다.");
   })
+  
   $().ready(function(){
 	  alert("document생략 가능")
   })
+  
   $(function(){
 	  alert("가장 최근의 형태임!!")
   })
